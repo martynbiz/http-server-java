@@ -25,6 +25,8 @@ https://www.youtube.com/watch?v=9wsDL9Q1p60
 https://www.youtube.com/watch?v=5wQWJAvMDGg
 
 ssl server
+https://www.baeldung.com/java-ssl
+
 https://www.youtube.com/watch?v=QUrbNbxG2i0
 https://www.youtube.com/watch?v=kd1L-be7-h4
 
@@ -33,3 +35,7 @@ next steps
 - use libraries for parsing etc
 - how do we create custom protocol requests
 - mixnets - same path, shuffle
+- extensions e.g. 
+
+mixnets
+- https://jmixnet.sourceforge.net/index_en.html
