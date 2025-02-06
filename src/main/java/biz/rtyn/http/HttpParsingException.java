@@ -1,9 +1,11 @@
-package biz.rtyn.httpserver.http;
+package biz.rtyn.http;
 
-public class HttpBadVersionException extends Exception {
+import biz.rtyn.http.token.HttpStatusCode;
+
+public class HttpParsingException extends Exception {
     private final HttpStatusCode errorCode;
 
-    public HttpBadVersionException(HttpStatusCode errorCode) {
+    public HttpParsingException(HttpStatusCode errorCode) {
         super(errorCode.MESSAGE);
         this.errorCode = errorCode;
     }

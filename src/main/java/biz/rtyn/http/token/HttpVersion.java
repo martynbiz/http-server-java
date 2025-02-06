@@ -1,4 +1,6 @@
-package biz.rtyn.httpserver.http;
+package biz.rtyn.http.token;
+
+import biz.rtyn.http.HttpParsingException;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -10,10 +12,10 @@ public enum HttpVersion {
     public final int MAJOR;
     public final int MINOR;
 
-    public static HttpVersion getBestCompatibleVersion(String literalVersion) throws HttpBadVersionException {
+    public static HttpVersion getBestCompatibleVersion(String literalVersion) throws HttpParsingException {
         Matcher matcher = httpVersionRegexPattern.matcher(literalVersion);
         if (!matcher.find() || matcher.groupCount() != 2) {
-            throw new HttpBadVersionException(HttpStatusCode.SERVER_ERROR_500_INTERNAL_ERROR);
+            throw new HttpParsingException(HttpStatusCode.SERVER_ERROR_500_INTERNAL_SERVER_ERROR);
         }
 
         int major = Integer.parseInt(matcher.group("major"));

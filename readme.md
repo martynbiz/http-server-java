@@ -9,7 +9,8 @@ http rfc:
 - 7230, 7231, 7232, 7233, 7234, 7235
 
 Java learn more:
-- StringBuilder
+- Executors.newFixedThreadPool
+- BufferedReader/BufferedWriter
 - Enums
 - InputStreamReader
 - Threads

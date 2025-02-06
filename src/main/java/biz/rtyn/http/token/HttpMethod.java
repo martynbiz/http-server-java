@@ -1,4 +1,4 @@
-package biz.rtyn.httpserver.http;
+package biz.rtyn.http.token;
 
 public enum HttpMethod {
     GET, HEAD

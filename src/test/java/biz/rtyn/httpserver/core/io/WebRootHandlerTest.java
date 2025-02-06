@@ -19,7 +19,7 @@ class WebRootHandlerTest {
     private Method checkIfProvidedRelativePathExistsMethod;
 
     @BeforeAll
-    public void beforeClass() throws WebRootNotFoundException, NoSuchMethodException {
+    public void beforeClass() throws NoSuchMethodException, FileNotFoundException {
         webRootHandler = new WebRootHandler("WebRoot");
         Class<WebRootHandler> cls = WebRootHandler.class;
 

@@ -9,21 +9,22 @@ import java.net.URLConnection;
 public class WebRootHandler {
     private File webRoot;
 
-    public WebRootHandler(String webRootPath) throws WebRootNotFoundException {
+    public WebRootHandler(String webRootPath) throws FileNotFoundException {
         webRoot = new File(webRootPath);
         if(!webRoot.exists() || !webRoot.isDirectory()) {
-            throw new WebRootNotFoundException("Webroot provided does not exist or is not a folder");
+            throw new FileNotFoundException("Webroot provided does not exist or is not a folder");
         }
     }
 
-    private boolean checkIfEndsWithSlash(String relativePath) {
+    public boolean checkIfEndsWithSlash(String relativePath) {
         return relativePath.endsWith("/");
     }
 
-    private boolean checkIfProvidedRelativePathExists(String relativePath) {
+    public boolean checkIfProvidedRelativePathExists(String relativePath) {
         File file = new File(webRoot, relativePath);
 
         if (!file.exists()) {
+            System.out.println(file.getPath());
             return false;
         }
 
@@ -39,16 +40,7 @@ public class WebRootHandler {
     }
 
     public String getFileMimeType(String relativePath) throws FileNotFoundException {
-//        if (checkIfEndsWithSlash(relativePath)) {
-//            relativePath += "index.html";
-//        }
-//
-//        if (!checkIfProvidedRelativePathExists(relativePath)) {
-//            throw new FileNotFoundException("File not found: " + relativePath);
-//        }
-
         File file = getFile(relativePath);
-
         String mimeType = URLConnection.getFileNameMap().getContentTypeFor(file.getName());
 
         if (mimeType == null) {
