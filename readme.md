@@ -36,7 +36,9 @@ next steps
 - use libraries for parsing etc
 - how do we create custom protocol requests
 - mixnets - same path, shuffle
-- extensions e.g. 
+- extensions e.g.
+
+UDP requests (no response?)
 
 mixnets
 - https://jmixnet.sourceforge.net/index_en.html

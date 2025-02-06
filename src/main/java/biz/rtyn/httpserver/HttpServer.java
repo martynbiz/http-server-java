@@ -45,7 +45,7 @@ public class HttpServer {
 
             while (true) {
                 Socket socket = serverSocket.accept();
-                executor.execute(() -> handleClientRequest(socket, webroot, false));
+                executor.execute(() -> handleClientRequest(socket, webroot));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -60,13 +60,13 @@ public class HttpServer {
 //
 //            while (true) {
 //                Socket socket = sslServerSocket.accept();
-//                handleClientRequest(socket, webroot, true);
+//                handleClientRequest(socket, webroot);
 //            }
 //        }
 //    }
 
     // Handle client request for both HTTP and HTTPS
-    private static void handleClientRequest(Socket socket, String webroot, boolean secure) {
+    private static void handleClientRequest(Socket socket, String webroot) {
         try (
                 BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
@@ -78,7 +78,7 @@ public class HttpServer {
                 // Read request line
                 // e.g. "GET /index.html HTTP/1.1"
                 String requestLine = reader.readLine();
-                System.out.println((secure ? "HTTPS" : "HTTP") + " Request: " + requestLine);
+                System.out.println(requestLine);
 
                 // Initiate new request instance
                 HttpRequest request = new HttpRequest(requestLine);
